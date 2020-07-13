@@ -1,0 +1,36 @@
+NOTE: If you don't have a GitHub account already, you will need to create one and be logged in to GitHub in another browser tab to complete this activity.
+
+In your efforts to better support a development organization, you have begun experimenting with Git source control and its interactions with GitHub. 
+In order to be able to provide secure access to any repositories that are in use, you will create a special SSH key (separate from any that may have been 
+created for other local systems to authenticate through) to be able to make an exchange with GitHub, and identify a service account called 'cloud_user' 
+with your own account.
+
+You will need to use the OpenSSH Client's utilities to create this key. First, create a subdirectory in your account's home directory called 'githubkeys'. 
+Using the appropriate tool, you will create a new key (the default encryption type and size will be acceptable according to your organization's security 
+policy) in this new directory called 'github-service-key'. Once you have this key, find the public key file that matches then copy and paste that into 
+the appropriate account profile information in GitHub. After giving the key a reference name, you should see it appear in the list of your authorized keys, 
+that will confirm it is available for use when trying to securely connect to your account.
+
+Solution:
+cd /c/Users/npal3/Desktop/Neha/Git
+mkdir githubkeys
+ssh-keygen
+(C:\Users\npal3\.ssh)
+adding ssh key to the ssh-agent
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+copy the key to github account.
+and provided the name as "github-service-key"
+
+Verify:
+npal3@LIN35006529 MINGW64 ~/Desktop/Neha/Git/githubkeys
+$ ssh -T git@github.com
+The authenticity of host 'github.com (13.234.176.102)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,13.234.176.102' (RSA) to the list of known hosts.
+Hi NehaPal07! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+
+
